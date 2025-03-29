@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Coding Moves</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1 id="welcomeMessage">Welcome!</h1>
+        <p>You have successfully logged into Coding Moves.</p>
+        <p>Stay tuned for exciting coding content and tutorials.</p>
+        <button id="logoutBtn">Logout</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userName = localStorage.getItem("userName") || "Guest";
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${userName}!`;
+
+            document.getElementById("logoutBtn").addEventListener("click", function() {
+                localStorage.removeItem("userName");
+                localStorage.removeItem("userEmail");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>
