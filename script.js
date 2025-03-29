@@ -20,15 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Send email using EmailJS
         emailjs.send("service_dmhhk6j", "template_jquit7z", {
             user_name: userName,
-            user_email: userEmail,
-            to_email: userEmail // Ensure the email is sent to the entered email address
+            user_email: userEmail, // Used in the email body
+            to_email: userEmail // Ensures the email is sent to the entered email address
         }).then(function (response) {
             console.log("✅ Email sent successfully!", response.status, response.text);
+            // Redirect to welcome page only if email is sent successfully
+            window.location.href = "welcome.html";
         }).catch(function (error) {
             console.error("❌ Failed to send email:", error);
+            alert("Failed to send email. Check the console for details.");
         });
-
-        // Redirect to the welcome page
-        window.location.href = "welcome.html";
     });
 });
