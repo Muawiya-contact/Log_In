@@ -1,39 +1,101 @@
-body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* Reset some default styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.login-container, .welcome-container {
+/* Dark background theme */
+body {
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Login container */
+.login-container {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 255, 100, 0.5);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
     width: 100%;
     max-width: 400px;
-    margin: 10% auto;
-    padding: 20px;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 255, 127, 0.5);
 }
 
+/* Title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #27ae60;
+}
+
+/* Input fields */
 input {
-    width: 90%;
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     margin: 10px 0;
-    border: none;
+    border: 2px solid #27ae60;
     border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
+/* Input focus effect */
+input:focus {
+    outline: none;
+    border-color: #0f7b3c;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.8);
+}
+
+/* Button */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #00ff7f;
+    padding: 12px;
     border: none;
+    background: #27ae60;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
+/* Button hover animation */
 button:hover {
-    background-color: #00cc66;
+    background: #1e8449;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(39, 174, 96, 0.7);
+}
+
+/* Button click effect */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
 }
