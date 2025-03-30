@@ -11,18 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please enter a valid name and email.");
             return;
         }
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("userEmail", userEmail);
+
         emailjs.send("service_dmhhk6j", "template_jquit7z", {
-            user_name: userName,   
-            to_email: userEmail  
+            user_name: userName,  
+            user_email: userEmail, 
+            to_email: userEmail   
         }).then(function (response) {
             console.log("✅ Email sent successfully!", response.status, response.text);
-            alert("Welcome email sent successfully!");
-            window.location.href = "welcome.html";
+            alert("Welcome email sent successfully to " + userEmail);
+            window.location.href = "welcome.html";  
         }).catch(function (error) {
             console.error("❌ Failed to send email:", error);
-            alert("Failed to send email. Please check the console for details.");
+            alert("Failed to send email. Check the console for details.");
         });
     });
 });
